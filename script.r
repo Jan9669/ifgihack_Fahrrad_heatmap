@@ -5,6 +5,7 @@ head(leezen_counts)
 class(leezen_counts) # is a data.frame
 
 # iterate throgh rows
+# TODO: better while loop 
 for(i in 1:nrow(leezen_counts)) {
     row <- leezen_counts[i,]
     print(row)
