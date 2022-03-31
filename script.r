@@ -11,3 +11,7 @@ for(i in 1:nrow(leezen_counts)) {
     print(row)
     # do stuff with row
 }
+
+print(leezen_counts[1,1])
+print(leezen_counts[1,])
+print(leezen_counts[,1])
