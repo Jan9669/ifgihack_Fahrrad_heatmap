@@ -17,11 +17,18 @@
 </head>
 
 <body>
+  <div id="mapdiv" class="col col-md-6 col-12"></div>
   <div id="main" class="container-fluid no-gutters">
-    <div id="contentFrame" class="d-flex justify-content-center flex-wrap mb-5">
+    
+    <div id="contentFrame" class="d-flex justify-content-center flex-wrap mb-5 col-md-2 col-12">
+      <select>
+        <option>Jahreswerte</option>
+        <option>Monatswerte</option>
+        <option>Wochentage</option>
+        <option>Tagesdaten</option>
+      </select>
     </div>
   </div>
-  <div id="mapdiv" class="col col-lg-5 col-12 border border-dark rounded align-self-lg-end"></div>
   <script src="/scripts/csvProcessing.js"></script>
   <script src="/scripts/interpolation.js"></script>
 <!-- JQUERY AND BOOTSTRAP JAVASCRIPT-->

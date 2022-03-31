@@ -146,22 +146,6 @@
             51.966988
           ]
         }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "id": 100053305,
-          "name": "Kanalpromenade",
-          "nr": "10",
-		  "Durchschnitt_Tag": "869"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            7.64893,
-            51.91717
-          ]
-        }
       }
     ]
   }

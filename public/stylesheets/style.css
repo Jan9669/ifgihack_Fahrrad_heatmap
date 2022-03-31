@@ -1,56 +1,35 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f7f7f6;
+}
+#main{
+  display: flex;
+  flex-direction: column;
+  
+}
+#contentFrame{
+  background-color: "#bebab4";
+  height: 100%;
 }
 
-a {
-  color: #00B7FF;
-}
 
 #mapdiv {
-  width: 600px; 
-  height: 600px;
+  width: 1000px; 
+  height: 700px;
   display: inline-block;
-  box-shadow: 5px 5px 10px;
-  box-shadow: grey;
 }
-
   @media screen and (max-width: 1560px) {
-    #startdiv {
-        width: 450px; 
-        height: 450px;
+    #mapdiv {
+        width: 800px; 
+        height: 600px;
     }
   }
-  
-  
   @media screen and (max-width: 767px) {
-      #startdiv {
+      #mapdiv {
         width: 300px; 
         height: 300px;
         box-shadow: none;
     }
   }
-  
-  #mapdiv {
-    width: 600px; 
-    height: 600px;
-    display: inline-block;
-    box-shadow: 5px 5px 10px;
-    box-shadow: grey;
-  }
-  
-    @media screen and (max-width: 1560px) {
-      #mapdiv {
-          width: 450px; 
-          height: 450px;
-      }
-    }
-    
-    
-    @media screen and (max-width: 767px) {
-        #mapdiv {
-          width: 300px; 
-          height: 300px;
-          box-shadow: none;
-      }
-    }
+
