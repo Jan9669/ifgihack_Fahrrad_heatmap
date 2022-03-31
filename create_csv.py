@@ -56,7 +56,7 @@ places_names = ["100034978 - Gartenstraße",
 new_words = [item.strip().split() for item in places_names]
 new_words
 
-#create list with the same names that appear in the dataframe columns
+#create new list with the same names that appear in the github data (not using "-", but using "()")
 places_names2 = []
 for i in range(len(new_words)):
     if len(new_words[i]) == 7:
@@ -84,20 +84,20 @@ def create_csv(code, date):
     #name -> place name
     #date -> "mm-yyyy"
     
-    #define patter of region
+    #define pattern of region using the code of each location 
     code = str(code)
     str_match = [s for s in places_names2 if code[-5:] in s]
     
     
-    #Reading dataframe (promenade)
+    #Reading dataframe
     df = pd.read_csv(f"https://raw.githubusercontent.com/od-ms/radverkehr-zaehlstellen/main/{str(code)}/{str(date)}.csv")
 
     #remove status columns
     df = df[df.columns.drop(list(df.filter(regex='status')))]
 
+    #sum same direction values 
     try:
         if len(str_match[-1].split()) == 5:
-            #sum specific directions
             df[f"sum_{str_match[1]}"] = df[str_match[1]]+df[str_match[3]]+df[str_match[5]]
             df[f"sum_{str_match[2]}"] = df[str_match[2]]+df[str_match[4]]+df[str_match[6]]
         elif len(str_match[-1].split()) == 4:
@@ -107,85 +107,40 @@ def create_csv(code, date):
             df[f"sum_{str_match[1]}"] = df[str_match[1]]
             df[f"sum_{str_match[2]}"] = df[str_match[2]]
     except:
+        #the len of each element is == 5, but there are more directions 
         df[f"sum_{str_match[1]}"] = df[str_match[1]]+df[str_match[3]]
         df[f"sum_{str_match[2]}"] = df[str_match[2]]+df[str_match[4]]
 
 
     #sum every hour 
+    
     #total
     df[f"sum_{str_match[0]}"] = df[str_match[0]].rolling(window=4).sum()
 
-    #sum specific directions 
+    #specific directions 
     df[f"sum_{str_match[1]}"] = df[f"sum_{str_match[1]}"].rolling(window=4).sum()
     df[f"sum_{str_match[2]}"] = df[f"sum_{str_match[2]}"].rolling(window=4).sum()
 
 
-    #leave only the sum columns in the dataframe
+    #leave only the sum columns in the dataframe (start with sum_)
     df.rename(columns={"Datetime":"sum_Datetime"}, inplace=True)
     df = df.loc[:,df.columns.str.startswith('sum')]
 
-    #keep only 00:45 sum results
+    #keep only the :45 rows (sum for the 1 hour)
     df = df[df['sum_Datetime'].str.contains(':45')]
     
-
-    #create f string name place and date 
+    #save the file in csv 
     df.to_csv(rf"D:\Users\Igor_Quaresma_D\Documents\Visual Code\Hackifgi\Hack\results\cleaned_datasets\{code}\{code}-{date}.csv")
 
 
-# In[20]:
+# In[55]:
 
 
-dates = ["2019-01",
-"2019-02",
-"2019-03",
-"2019-04",
-"2019-05",
-"2019-06",
-"2019-07",
-"2019-08",
-"2019-09",
-"2019-10",
-"2019-11",
-"2019-12",
-"2020-01",
-"2020-02",
-"2020-03",
-"2020-04",
-"2020-05",
-"2020-06",
-"2020-07",
-"2020-08",
-"2020-09",
-"2020-10",
-"2020-11",
-"2020-12",
-"2021-01",
-"2021-02",
-"2021-03",
-"2021-04",
-"2021-05",
-"2021-06",
-"2021-07",
-"2021-08",
-"2021-09",
-"2021-10",
-"2021-11",
-"2021-12",
-"2022-01",
-"2022-02",
-"2022-03",
-"2022-04",
-"2022-05",
-"2022-06",
-"2022-07",
-"2022-08",
-"2022-09",
-"2022-10",
-"2022-11",
-"2022-12",
-"2023-01",
-"2023-02",
-"2023-03"]
+dates = ["2019-01","2019-02","2019-03","2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12",
+         "2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12",
+         "2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12",
+         "2022-01","2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12",
+         "2023-01","2023-02","2023-03"]
 
 
 # In[53]:
@@ -193,10 +148,4 @@ dates = ["2019-01",
 
 for i in dates:
     create_csv(100031300, i)
-
-
-# In[ ]:
-
-
-
 
