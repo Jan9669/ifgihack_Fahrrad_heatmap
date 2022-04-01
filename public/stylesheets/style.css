@@ -1,12 +1,12 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #f7f7f6;
+  overflow: hidden;
 }
 #main{
   display: flex;
   flex-direction: column;
-  
+
 }
 #contentFrame{
   background-color: "#bebab4";
@@ -15,14 +15,14 @@ body {
 
 
 #mapdiv {
-  width: 1000px; 
-  height: 700px;
+  width: 100%; 
+  height: 100%;
   display: inline-block;
 }
   @media screen and (max-width: 1560px) {
     #mapdiv {
-        width: 800px; 
-        height: 600px;
+        width: 100%; 
+        height: 100%;
     }
   }
   @media screen and (max-width: 767px) {
@@ -32,4 +32,16 @@ body {
         box-shadow: none;
     }
   }
-
+#footer{
+  position: fixed;
+  bottom: 2%;
+}
+#mode_select{
+  margin:2.5% !important;
+  background: transparent;
+  border:none;
+  color:#f7f7f6;
+  border-top: 1px solid #f7f7f667;
+  border-bottom: 1px solid #f7f7f6;
+  width: 95%;
+}

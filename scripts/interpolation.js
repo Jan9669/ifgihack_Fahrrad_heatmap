@@ -14,7 +14,7 @@ async function createMarker(){
         var count = json.features.length;
         for(let i=0; i<count; ++i ){
             L.marker([json.features[i].geometry.coordinates[1], json.features[i].geometry.coordinates[0]]).addTo(map)
-            .bindPopup("<b>Zählstelle: </b>"+ json.features[i].properties.name + "<br> <b>Tägliche Durchfahrten: </b>" +json.features[i].properties.Durchschnitt_Tag)
+            .on('click', markerOnClick);
         }
         $.ajax({
             url:"/turf/",
@@ -24,16 +24,6 @@ async function createMarker(){
         }).done(function(res){
             console.log(res)
             for(var i=0;i<res.length;++i){
-            //     var calc_color = (  res.features[i].properties.amount > 9000 ? "#800026" :
-            //                         res.features[i].properties.amount > 8000 ? "#bd0026" :            
-            //                         res.features[i].properties.amount > 7000 ? "#e31a1c" :
-            //                         res.features[i].properties.amount > 6000 ? "#fc4e2a" :
-            //                         res.features[i].properties.amount > 5000 ? "#fd8d3c" :
-            //                         res.features[i].properties.amount > 4000 ? "#feb24c" :
-            //                         res.features[i].properties.amount > 3000 ? "#fed976" :
-            //                         res.features[i].properties.amount > 2000 ? "#ffeda0" :
-            //                         res.features[i].properties.amount > 1000 ? "#ffffcc" :
-            //                         "#FFFFFF")
             var polygon = L.polygon(res[i].geometry.coordinates, {color: "blue", fillColor:"blue", fill:true, fillOpacity: 0.3});
             polygon.addTo(map)
             }
@@ -44,3 +34,23 @@ async function createMarker(){
     
 }
 createMarker();
+
+function markerOnClick(e){
+    var criteria = [];
+    document.getElementById("chart").style="visibility:visible"
+    var marker = this;
+    criteria.push({coordinates:e.latlng})
+    dbTest(criteria)
+}
+
+function dbTest(criteria){
+    $.ajax({
+        url:"/database/",
+        method: "POST",
+        data: JSON.stringify(criteria),
+        contentType: "application/json"
+    }).done(function(res){
+        console.log("DB done")
+        console.log(res)
+    })
+}
