@@ -14,8 +14,9 @@ router.post('/', function(req, res, next) {
     });
   
     db.serialize(() => {
-        console.log(req.body[0].coordinates)
-      db.all("select sum, datetime from count_values where datetime like '2022-03-30 __:__'", function (err, tables) {
+        console.log(req.body[0].station_id)
+      db.all("select sum, datetime from count_values where station_id = "+req.body[0].station_id+" and datetime like '2022_03_30 __:__'", function (err, tables) {
+          console.log(tables)
           var data=[]
           for(var i=0;i<tables.length;++i){
             data.push({x:tables[i].datetime, y:tables[i].sum});

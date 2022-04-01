@@ -1,10 +1,6 @@
-function createChart(){
-    $.ajax({
-        url:"/database/",
-        method: "GET"
-    }).done(function(res){
-        console.log("HElloooooooooooooooooooooooooo")
-        console.log(res)
+function createChart(res){
+    document.getElementById("chart").innerHTML=""
+    console.log(res)
         var options = {
             chart: {
               type: 'line'
@@ -26,8 +22,7 @@ function createChart(){
           }
           
           var chart = new ApexCharts(document.querySelector('#chart'), options)
-          chart.render()
-    })
-    
+          document.getElementById("chart").style="visibilty:visible;"
+          chart.render();
 }
-//createChart();
+

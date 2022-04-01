@@ -1,4 +1,3 @@
-console.log("YAaaaaay")
 function getCSVData(){
     $.ajax({
         url:"/csv",
@@ -6,7 +5,4 @@ function getCSVData(){
       }).done(function(res){
         console.log(res[0]);
     })
-}
-async function getJSON(){
-    
 }

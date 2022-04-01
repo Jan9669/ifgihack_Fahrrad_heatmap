@@ -26,14 +26,31 @@
 	        </button>
         </div>
         <div class="">
-		  		<h1><a href="index.html" class="logo">LeezenLytics <span>Bike-Traffic Analytics Tool</span></a></h1>
+		  		<h1><a href="index.html" class="logo"><img src="./images/logo.png"></a></h1>
 	        <ul class="list-unstyled components mb-5">
             <li>
-              <label for="mode_select" class="mr-3">Wählen Sie die Art der Daten</label>
-              <select id="mode_select" class="custom-select">
-                <option>Jahresdurchschnitt</option>
-              </select>
+              <form>
+                <div class="form-group">
+                  <label for="mode_select" class="mr-3">Wählen Sie die Art der Daten</label>
+                  <select id="mode_select" class="custom_input_style form-control" onchange="changeInput(this.value)">
+                    <option value="1">Jahresdurchschnitt</option>
+                    <option value="2">Tageswerte</option>
+                  </select>
+                </div>
+                <div class="form-group" id="datepicker" style="display: none;">
+                  <label for="start">Tag auswählen</label>
+                  <input type="date" id="start" class="form-control custom_input_style" name="trip-start" min="2019-01-01" onblur="">
+              </div>
+              <div class="form-group" style="display: inline-block;" id="yearSelect">
+                <label for="mode_select" class="mr-3">Wählen Sie das Jahr</label>
+                <select id="mode_select" class="custom_input_style form-control">
+                  <option value="1">2021</option>
+                </select>
+              </div>
+              </form>
+              
             </li>
+            
 	        </ul>
 
 	        <div class="mb-5 px-4">
@@ -61,7 +78,7 @@
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="/scripts/charts.js"></script>
   <script src="/scripts/csvProcessing.js"></script>
-  <script src="/scripts/interpolation.js"></script>
+  <script src="/scripts/index.js"></script>
 <!-- JQUERY AND BOOTSTRAP JAVASCRIPT-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
