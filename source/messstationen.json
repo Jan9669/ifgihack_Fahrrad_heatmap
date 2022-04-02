@@ -1,0 +1,141 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 100020113,
+          "name": "Wolbecker StraÃŸe",
+          "nr": "2"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            7.636356,
+            51.95921
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 100031297,
+          "name": "Promenade",
+          "nr": "5"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            7.634015197473532,
+            51.960595599885565
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 100031300,
+          "name": "HafenstraÃŸe",
+          "nr": "8"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            7.62974,
+            51.95426
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 100034978,
+          "name": "GartenstraÃŸe",
+          "nr": "6"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            7.635686416805148,
+            51.97154102512242
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 100034980,
+          "name": "Hammer StraÃŸe",
+          "nr": "4"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            7.62631,
+            51.95462
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 100034981,
+          "name": "Weseler StraÃŸe",
+          "nr": "9"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            7.6178703,
+            51.9505521
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 100034982,
+          "name": "HÃ¼fferstraÃŸe",
+          "nr": "3"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            7.61094,
+            51.9617
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 100034983,
+          "name": "Warendorfer StraÃŸe",
+          "nr": "7"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            7.63768,
+            51.96185
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": 100035541,
+          "name": "Neutor",
+          "nr": "1",
+          "extra": "mit Anzeige"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            7.615511,
+            51.966988
+          ]
+        }
+      }
+    ]
+  }

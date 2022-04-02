@@ -1,0 +1,62 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f7f7f6;
+  overflow: hidden;
+}
+#main{
+  display: flex;
+  flex-direction: column;
+
+}
+#contentFrame{
+  background-color: "#bebab4";
+  height: 100%;
+}
+
+
+#mapdiv {
+  width: 100%; 
+  height: 100%;
+  display: inline-block;
+}
+  @media screen and (max-width: 1560px) {
+    #mapdiv {
+        width: 100%; 
+        height: 100%;
+    }
+  }
+  @media screen and (max-width: 767px) {
+      #mapdiv {
+        width: 300px; 
+        height: 300px;
+        box-shadow: none;
+    }
+  }
+#footer{
+  position: fixed;
+  bottom: 2%;
+}
+.custom_input_style{
+  margin:2.5% !important;
+  background: transparent;
+  border:none;
+  color:#f7f7f6;
+  border-top: 1px solid #f7f7f667;
+  border-bottom: 1px solid #f7f7f6;
+  width: 95%;
+}
+img{
+  height: fit-content;
+  width: 100%;
+  object-fit: contain;
+  }
+label{
+  margin:2.5%;
+}
+#subtitle {
+  display: table;
+  margin: 0 auto;
+}
+option{
+  color:#0275d8;
+}
